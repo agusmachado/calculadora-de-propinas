@@ -1,18 +1,23 @@
 import { formatCurrency } from "../helpers"
 import { OrderItem } from "../types"
 
+// Define las propiedades que se esperan en el componente OrderTotals
 type OrderTotalsProps = {
-    order: OrderItem[],
-    tip: number,
-    placeOrder: () => void
+    order: OrderItem[],  // Lista de artículos en la orden
+    tip: number,         // Porcentaje de propina
+    placeOrder: () => void  // Función para guardar la orden
 }
 
-export default function OrderTotals({order, tip, placeOrder} : OrderTotalsProps) {
-  
-    const subtotalAmount = order.reduce( (total, item) => total + (item.quantity * item.price), 0)
+// Componente OrderTotals que recibe las propiedades definidas en OrderTotalsProps
+export default function OrderTotals({ order, tip, placeOrder }: OrderTotalsProps) {
 
+    // Calcula el subtotal sumando el precio de cada artículo multiplicado por su cantidad
+    const subtotalAmount = order.reduce((total, item) => total + (item.quantity * item.price), 0)
+
+    // Calcula la cantidad de propina multiplicando el subtotal por el porcentaje de propina
     const tipAmount = subtotalAmount * tip
 
+    // Calcula el total sumando el subtotal y la cantidad de propina
     const totalAmount = subtotalAmount + tipAmount
 
     return (

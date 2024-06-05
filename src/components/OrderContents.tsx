@@ -1,11 +1,13 @@
 import { formatCurrency } from "../helpers"
 import { MenuItem, OrderItem } from "../types"
 
+// Define las propiedades esperadas por el componente OrderContents
 type OrderContentsProps = {
-    order: OrderItem[],
-    removeItem: (id: MenuItem['id']) => void
+    order: OrderItem[], // Lista de items en el pedido
+    removeItem: (id: MenuItem['id']) => void // Función para eliminar un item por su id
 }
 
+// Componente OrderContents que recibe las propiedades definidas en OrderContentsProps
 export default function OrderContents({order, removeItem} : OrderContentsProps) {
   return (
     <div>

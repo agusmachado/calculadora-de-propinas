@@ -1,4 +1,4 @@
-
+// Define las opciones de propina disponibles
 const tipOptions = [
     {
       id: 'tip-10',
@@ -17,11 +17,13 @@ const tipOptions = [
     },
   ]
 
+// Define las propiedades esperadas por el componente TipPercentageForm
 type TipPercentageFormProps = { 
-    setTip: React.Dispatch<React.SetStateAction<number>>,
-    tip: number
+    setTip: React.Dispatch<React.SetStateAction<number>>, // Función para actualizar el valor de la propina
+    tip: number // Valor actual de la propina
 }
 
+// Componente TipPercentageForm que recibe las propiedades definidas en TipPercentageFormProps
 export default function TipPercentageForm({setTip, tip} : TipPercentageFormProps) {
   return (
     <div>
